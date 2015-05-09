@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Name="SettingsWindow" x:Class="Sync.WPFTelerik.Settings"
+        Title="Settings" Height="300" Width="300">
+    <telerik:RadTabControl HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="292">
+        <telerik:RadTabItem x:Name="RadTabItem" Header="RadTabItem" Height="48" Width="94">
+            <Grid Background="Transparent">
+                <telerik:RadTabControl Margin="107,-78,23,191">
+                    <telerik:RadTabItem x:Name="RadTabItem1" Header="RadTabItem" Height="62" Width="96">
+                        <Grid Background="Transparent"/>
+                    </telerik:RadTabItem>
+                </telerik:RadTabControl>
+            </Grid>
+        </telerik:RadTabItem>
+    </telerik:RadTabControl>
+</Window>

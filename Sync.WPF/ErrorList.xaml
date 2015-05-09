@@ -1,0 +1,8 @@
+﻿<Window x:Class="Sync.WPF.ErrorList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ErrorList" Height="300" Width="653.933">
+    <Grid Margin="0,0,-318,-21">
+        <DataGrid x:Name="ErrorGrid" Margin="10,19,333,0" VerticalAlignment="Top" Height="221"/>
+    </Grid>
+</Window>

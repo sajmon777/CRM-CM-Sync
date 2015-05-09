@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sync.WPFBlend", "Sync.WPFBlend\Sync.WPFBlend.csproj", "{d51e3a83-a1fa-4eec-a9ce-7c5fd189a547}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D51E3A83-A1FA-4EEC-A9CE-7C5FD189A547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51E3A83-A1FA-4EEC-A9CE-7C5FD189A547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51E3A83-A1FA-4EEC-A9CE-7C5FD189A547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51E3A83-A1FA-4EEC-A9CE-7C5FD189A547}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,96 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="Sync_WPFBlend.SyncWindow"
+	x:Name="Window"
+	Title="Synchronize Dynamic CRM-Campaign Monitor"
+	Width="640" Height="480" Topmost="True" Background="WhiteSmoke">
+
+    <Grid x:Name="LayoutRoot" Background="#FF7C7575">
+        <DataGrid x:Name="MapListDataGrid" Margin="10,105,10,0" VerticalAlignment="Top" Height="334" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Campaign Monitor List" Binding="{ Binding CmListName}" Width="160"></DataGridTextColumn>
+                <DataGridTextColumn Header="Dynamic CRM List" Binding="{Binding CrmListName}" Width="160"/>
+                <DataGridTextColumn Header="Last Sync" Binding="{ Binding LastSync}" Width="160"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource RoundBlackButton}" x:Name="DeleteConnectionButton" Content="Delete" Click="DeleteConnectionButton_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TabControl HorizontalAlignment="Left" Height="100" Margin="0" VerticalAlignment="Top" Width="632" Style="{DynamicResource TabControlStyle}">
+            <TabItem Header="Main" Width="110">
+            	
+            		<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FFF0F0F0" Offset="0"/>
+						<GradientStop Color="#FFB9B7B7" Offset="0.743"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+            	
+                
+				<Grid Background="#FFAAA7A7">
+                    <Button  Style="{StaticResource RoundBlackButton}" x:Name="SettingsButton" Content="Settings" HorizontalAlignment="Left" Margin="2,1,0,0" Width="80" Click="SettingsButton_Click">
+				     <Button.Background>
+					      <ImageBrush ImageSource="Images/Setting-icon.png" />
+					 </Button.Background>
+					</Button>
+					<Button Style="{StaticResource RoundBlackButton}" x:Name="ErrorLogButton" Content="Error Log" HorizontalAlignment="Left" Margin="172,1,0,0" Width="80" Click="ErrorLogButton_Click"/>
+                    <Button Style="{StaticResource RoundBlackButton}" x:Name="SyncLogButton" Content="Sync Log" HorizontalAlignment="Left" Margin="257,1,0,0" Width="80" Click="SyncLogButton_Click"/>
+                    <Button Style="{StaticResource RoundBlackButton}" x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="87,1,0,0" Width="80" Click="AddButton_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Synchronization" Width="110">
+            	<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FFF0F0F0" Offset="0"/>
+						<GradientStop Color="#FFB9B7B7" Offset="0.743"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+                <Grid Background="#FFAAA7A7">
+                    <Button Style="{StaticResource RoundBlackButton}" x:Name="StopServiceButton" Content="Stop" HorizontalAlignment="Left" Width="80" Margin="3,1,0,0" Click="StopServiceButton_Click"/>
+                    <Button Style="{StaticResource RoundBlackButton}" x:Name="StartServiceButton" Content="Start" HorizontalAlignment="Left" Width="80" Margin="87,1,0,0" Click="StartServiceButton_Click"/>
+                    <Ellipse x:Name="RunLight" HorizontalAlignment="Left" Height="36" Margin="504,19,0,0" VerticalAlignment="Top" Width="38">
+                        <Ellipse.Fill>
+                            <RadialGradientBrush RadiusY="0.789" RadiusX="0.486" Center="0.482,0.162" GradientOrigin="0.482,0.162">
+                                <GradientStop Color="#FF3C3C3E" Offset="0.994"/>
+                                <GradientStop Color="#FF98F318"/>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse x:Name="StopLight" HorizontalAlignment="Left" Height="36" Margin="504,19,0,0" VerticalAlignment="Top" Width="38">
+                        <Ellipse.Fill>
+                            <RadialGradientBrush RadiusY="0.789" RadiusX="0.486" Center="0.482,0.162" GradientOrigin="0.482,0.162">
+                                <GradientStop Color="#FF3C3C3E" Offset="0.994"/>
+                                <GradientStop Color="#FFF34A18"/>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <TextBlock x:Name="SyncText" HorizontalAlignment="Left" Height="32" Margin="243,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="21.333"><Run Language="sl-si" Text="Synchronization running"/></TextBlock>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Border x:Name="LoadingScreen" Visibility="Hidden">
+            <Grid>
+                <Rectangle Margin="0" RenderTransformOrigin="0.503,0.501">
+                    <Rectangle.Fill>
+                        <RadialGradientBrush RadiusY="0.789" RadiusX="0.486" Center="0.482,0.162" GradientOrigin="0.482,0.162">
+                            <GradientStop Color="#FF3C3C3E" Offset="0.994"/>
+                            <GradientStop Color="#FF84897D"/>
+                        </RadialGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="42" Margin="231,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="32" Foreground="#FFF7F7F7" FontFamily="Trajan Pro 3"><Run Language="sl-si" Text="Loading..."/></TextBlock>
+            </Grid>
+        </Border>
+        <!--Button x:Name="SettingsButton" Content="Settings" HorizontalAlignment="Left" Height="65" Margin="31.332,129.331,0,0" VerticalAlignment="Top" Width="59.667" Click="SettingsButton_Click"/>
+		<Button x:Name="ServiceButton" Content="Service" HorizontalAlignment="Left" Height="65" Margin="95.641,129.331,0,0" VerticalAlignment="Top" Width="57.667" Click="ServiceButton_Click"/>
+		<Button x:Name="ErrorListButton" Content=" Error List" HorizontalAlignment="Left" Height="63.667" Margin="158.308,130.664,0,0" VerticalAlignment="Top" Width="57" Click="ErrorListButton_Click"/>
+		<Button x:Name="LogListButton" Content="Log List" HorizontalAlignment="Left" Height="63.667" Margin="220.308,130.664,0,0" VerticalAlignment="Top" Width="64.333"/>
+		<Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Height="26" Margin="460,199.331,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>-->
+    </Grid>
+</Window>

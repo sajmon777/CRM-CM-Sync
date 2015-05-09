@@ -1,0 +1,21 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Sync_WPFBlend.AddWindow"
+	x:Name="Window"
+	Title="Add New Connection"
+	Width="390" Height="304"
+	WindowStartupLocation="CenterOwner"
+	ResizeMode="NoResize"
+	>
+	<Grid x:Name="LayoutRoot" Background="#FF7C7575"> 
+	<ComboBox x:Name="CmListComboBox" HorizontalAlignment="Left" Margin="100,67.331,0,0" VerticalAlignment="Top" Width="164" />
+    <ComboBox x:Name="CrmListComboBox" HorizontalAlignment="Left" Margin="100,156.595,0,0" VerticalAlignment="Top" Width="164"/>
+	<Button Style="{StaticResource RoundBlackButton}" x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="200,234,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="AddButton_Click">
+        </Button>
+        <Button x:Name="CancelButton" Style="{StaticResource RoundBlackButton}" Content="Cancel" HorizontalAlignment="Left" Margin="286,234,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="CancelButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Height="28.998" Margin="99.995,38.333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.67" FontSize="16"><Run Language="sl-si" Text="Campaign Monitor List"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="28.998" Margin="99.328,121.941,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.67" FontSize="16"><Run Language="sl-si" Text="Dynamic CRM List"/></TextBlock>
+	
+	</Grid>
+</Window>
